@@ -1,0 +1,91 @@
+﻿@model Otomoto.Models.Car
+
+@{
+    Layout = null;
+    ViewBag.Title = "Car Details";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/detailsForm.css" />
+    <title>Car Details</title>
+</head>
+<body class="container">
+    <div class="page-content page-container mt-5" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-8 col-md-12">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                                <div class="card-block text-center text-white">
+                                    <div class="m-b-25">
+                                        @if (Model.CarPicture != null && Model.CarPicture.Length > 0)
+                                        {
+                                            var base64String = Convert.ToBase64String(Model.CarPicture);
+                                            <img src="data:image/jpeg;base64,@base64String" width="200px" class="img-radius" alt="Car-Image">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/images/default-car-image.jpg" width="200px" class="img-radius" alt="Default-Car-Image">
+                                        }
+                                    </div>
+                                    <h6 class="f-w-600">@Model.Marka @Model.Model</h6>
+                                    <p>@Model.Typ</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Car Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Car Id</p>
+                                            <h6 class="text-muted f-w-400">@Model.CarId</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Opis</p>
+                                            <h6 class="text-muted f-w-400">@Model.Opis</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Pojemność</p>
+                                            <h6 class="text-muted f-w-400">@Model.Pojemnosc</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Skrzynia Biegów</p>
+                                            <h6 class="text-muted f-w-400">@Model.SkrzyniaBiegow</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Rok Produkcji</p>
+                                            <h6 class="text-muted f-w-400">@Model.RokProdukcji</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Cena</p>
+                                            <h6 class="text-muted f-w-400">@Model.Cena</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">VIN</p>
+                                            <h6 class="text-muted f-w-400">@Model.Vin</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Przebieg</p>
+                                            <h6 class="text-muted f-w-400">@Model.Przebieg</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Rodzaj Paliwa</p>
+                                            <h6 class="text-muted f-w-400">@Model.RodzajPaliwa</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

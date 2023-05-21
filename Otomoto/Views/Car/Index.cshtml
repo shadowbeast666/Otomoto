@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Otomoto.Models.Car>
+
+@{
+    ViewBag.Title = "Ogłoszenia";
+}
+
+<h2>Cars</h2>
+
+<p>
+    <a asp-action="Create">Create New Car</a>
+</p>
+
+<form asp-controller="Car" asp-action="Index" method="get">
+    <p>
+        Car Id: <input type="text" name="carId" />
+        Opis: <input type="text" name="opis" />
+        Marka: <input type="text" name="marka" />
+        Model: <input type="text" name="model" />
+        Typ: <input type="text" name="typ" />
+        Pojemnosc: <input type="text" name="pojemnosc" />
+        SkrzyniaBiegow: <input type="text" name="skrzyniaBiegow" />
+        RokProdukcji: <input type="date" name="rokProdukcji" />
+        Cena: <input type="text" name="cena" />
+        Vin: <input type="text" name="vin" />
+        Przebieg: <input type="text" name="przebieg" />
+        RodzajPaliwa: <input type="text" name="rodzajPaliwa" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car Id</th>
+            <th>Opis</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Typ</th>
+            <th>Pojemnosc</th>
+            <th>Skrzynia Biegów</th>
+            <th>Rok Produkcji</th>
+            <th>Cena</th>
+            <th>VIN</th>
+            <th>Przebieg</th>
+            <th>Rodzaj Paliwa</th>
+            <th>Creation Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CarId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Opis)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Marka)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Typ)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pojemnosc)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SkrzyniaBiegow)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RokProdukcji)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cena)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Vin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Przebieg)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RodzajPaliwa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CarId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.CarId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CarId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+        
+    </tbody>
+</table>

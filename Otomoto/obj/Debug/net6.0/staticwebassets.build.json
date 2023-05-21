@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "w06mTtxgD1f9Jyd/8vAl/9GOvsLMTn00JdfdBGYPG9w=",
+  "Hash": "Ig0O/fXrnYO3FPVzBaKLb5pTVl5Kostw2tEAq0ODUH8=",
   "Source": "Otomoto",
   "BasePath": "_content/Otomoto",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Otomoto.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\css\\detailsForm.css",
+      "SourceId": "Otomoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\",
+      "BasePath": "_content/Otomoto",
+      "RelativePath": "css/detailsForm.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\detailsForm.css"
+    },
+    {
       "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\css\\site.css",
       "SourceId": "Otomoto",
       "SourceType": "Discovered",
@@ -1086,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\css\\styles.css",
+      "SourceId": "Otomoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\",
+      "BasePath": "_content/Otomoto",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\favicon.ico",

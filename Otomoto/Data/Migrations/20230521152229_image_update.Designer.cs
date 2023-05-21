@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Otomoto.Data;
 
@@ -11,9 +12,10 @@ using Otomoto.Data;
 namespace Otomoto.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230521152229_image_update")]
+    partial class image_update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,7 +236,7 @@ namespace Otomoto.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarId"), 1L, 1);
 
                     b.Property<byte[]>("CarPicture")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("image");
 
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
@@ -294,7 +296,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 1,
                             Cena = 10000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 17, 38, 30, 432, DateTimeKind.Local).AddTicks(1956),
+                            CreatedAt = new DateTime(2023, 5, 21, 17, 22, 28, 688, DateTimeKind.Local).AddTicks(4222),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Marka1",
@@ -312,7 +314,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 2,
                             Cena = 20000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 17, 38, 30, 432, DateTimeKind.Local).AddTicks(1990),
+                            CreatedAt = new DateTime(2023, 5, 21, 17, 22, 28, 688, DateTimeKind.Local).AddTicks(4257),
                             IsAdActive = true,
                             IsAdPaid = true,
                             Marka = "Toyota",
@@ -330,7 +332,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 3,
                             Cena = 18000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 17, 38, 30, 432, DateTimeKind.Local).AddTicks(1993),
+                            CreatedAt = new DateTime(2023, 5, 21, 17, 22, 28, 688, DateTimeKind.Local).AddTicks(4260),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Honda",
@@ -348,7 +350,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 4,
                             Cena = 30000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 17, 38, 30, 432, DateTimeKind.Local).AddTicks(1998),
+                            CreatedAt = new DateTime(2023, 5, 21, 17, 22, 28, 688, DateTimeKind.Local).AddTicks(4263),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Toyota",
@@ -366,7 +368,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 5,
                             Cena = 20000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 17, 38, 30, 432, DateTimeKind.Local).AddTicks(2002),
+                            CreatedAt = new DateTime(2023, 5, 21, 17, 22, 28, 688, DateTimeKind.Local).AddTicks(4267),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Honda",

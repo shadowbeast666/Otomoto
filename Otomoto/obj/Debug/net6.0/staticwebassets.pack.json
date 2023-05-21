@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\Otomoto.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\css\\detailsForm.css",
+      "PackagePath": "staticwebassets\\css\\detailsForm.css"
+    },
+    {
       "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
       "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\favicon.ico",
