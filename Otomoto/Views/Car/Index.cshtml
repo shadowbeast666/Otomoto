@@ -10,22 +10,79 @@
     <a asp-action="Create">Create New Car</a>
 </p>
 
-<form asp-controller="Car" asp-action="Index" method="get">
-    <p>
-        Car Id: <input type="text" name="carId" />
-        Opis: <input type="text" name="opis" />
-        Marka: <input type="text" name="marka" />
-        Model: <input type="text" name="model" />
-        Typ: <input type="text" name="typ" />
-        Pojemnosc: <input type="text" name="pojemnosc" />
-        SkrzyniaBiegow: <input type="text" name="skrzyniaBiegow" />
-        RokProdukcji: <input type="date" name="rokProdukcji" />
-        Cena: <input type="text" name="cena" />
-        Vin: <input type="text" name="vin" />
-        Przebieg: <input type="text" name="przebieg" />
-        RodzajPaliwa: <input type="text" name="rodzajPaliwa" />
-    </p>
+<form asp-controller="Car" asp-action="Index" method="get" class="row g-3">
+    <div class="col-md-2">
+        <label for="carId" class="form-label">Car Id</label>
+        <input type="text" class="form-control" id="carId" name="carId" />
+    </div>
+    <div class="col-md-2">
+        <label for="opis" class="form-label">Opis</label>
+        <input type="text" class="form-control" id="opis" name="opis" />
+    </div>
+    <div class="col-md-2">
+        <label for="marka">Marka:</label>
+        <select name="marka" id="marka">
+            <option value="">All</option>
+            @foreach (var brand in ViewBag.CarBrands)
+            {
+                <option value="@brand.Name">@brand.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="model" class="form-label">Model</label>
+        <input type="text" class="form-control" id="model" name="model" />
+    </div>
+    <div class="col-md-2">
+        <label for="typ" class="form-label">Nadwozie</label>
+        <select class="form-control" id="typ" name="typ">
+            <option value="">-- Wybierz nadwozie --</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Kombi">Kombi</option>
+            <option value="SUV">SUV</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="pojemnosc" class="form-label">Pojemność</label>
+        <input type="text" class="form-control" id="pojemnosc" name="pojemnosc" />
+    </div>
+    <div class="col-md-2">
+        <label for="skrzyniaBiegow" class="form-label">Nadwozie</label>
+        <select class="form-control" id="skrzyniaBiegow" name="skrzyniaBiegow">
+            <option value="">-- Wybierz rodzaj skrzyni --</option>
+            <option value="Manualna">Manualna</option>
+            <option value="Automatyczna">Automatyczna</option>
+            <option value="Polautomatyczna">Półautomatyczna Stopniowana</option>
+        </select>
+        </div>
+        <div class="col-md-2">
+            <label for="rokProdukcji" class="form-label">Rok Produkcji</label>
+        <input type="number" class="form-control" id="rokProdukcji" name="rokProdukcji" min="1900" max="2023" step="1" pattern="[0-9]{4}" title="Enter a valid year (e.g., 2023)" />
+        </div>
+    <div class="col-md-2">
+        <label for="cena" class="form-label">Cena</label>
+        <input type="text" class="form-control" id="cena" name="cena" />
+    </div>
+    <div class="col-md-2">
+        <label for="vin" class="form-label">Vin</label>
+        <input type="text" class="form-control" id="vin" name="vin" />
+    </div>
+    <div class="col-md-2">
+        <label for="przebieg" class="form-label">Przebieg</label>
+        <input type="text" class="form-control" id="przebieg" name="przebieg" />
+    </div>
+    <div class="col-md-2">
+        <label for="rodzajPaliwa" class="form-label">Rodzaj Paliwa</label>
+        <input type="text" class="form-control" id="rodzajPaliwa" name="rodzajPaliwa" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label"></label> <!-- Empty label for spacing -->
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
 </form>
+
+
 
 <table class="table">
     <thead>

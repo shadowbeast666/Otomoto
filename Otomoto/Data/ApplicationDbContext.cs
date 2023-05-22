@@ -9,9 +9,6 @@ namespace Otomoto.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext()
-        {
-        }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -19,6 +16,9 @@ namespace Otomoto.Data
         }
 
         public DbSet<Car> Cars { get; set; }
+
+        public DbSet<CarBrand> CarBrands { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -78,12 +78,12 @@ namespace Otomoto.Data
             {
                 CarId = 1,
                 Opis = "Opis1",
-                Marka = "Marka1",
+                Marka = "BMW",
                 Model = "Model1",
                 Typ = "Typ1",
                 Pojemnosc = "Pojemnosc1",
                 SkrzyniaBiegow = "SkrzyniaBiegow1",
-                RokProdukcji = new DateTime(2022, 1, 1),
+                RokProdukcji = 2000,
                 Cena = 10000,
                 Vin = 123456,
                 Przebieg = 10000,
@@ -102,7 +102,7 @@ namespace Otomoto.Data
                 Typ = "Sedan",
                 Pojemnosc = "1.8L",
                 SkrzyniaBiegow = "Automatic",
-                RokProdukcji = new DateTime(2019, 1, 1),
+                RokProdukcji = 2009,
                 Cena = 20000,
                 Vin = 100001,
                 Przebieg = 50000,
@@ -120,7 +120,7 @@ namespace Otomoto.Data
                 Typ = "Hatchback",
                 Pojemnosc = "2.0L",
                 SkrzyniaBiegow = "Manual",
-                RokProdukcji = new DateTime(2018, 5, 1),
+                RokProdukcji = 2023,
                 Cena = 18000,
                 Vin = 100002,
                 Przebieg = 30000,
@@ -138,7 +138,7 @@ namespace Otomoto.Data
                  Typ = "Sedan",
                  Pojemnosc = "2500cc",
                  SkrzyniaBiegow = "Automatic",
-                 RokProdukcji = new DateTime(2022, 1, 1),
+                 RokProdukcji = 2021,
                  Cena = 30000,
                  Vin = 123456789,
                  Przebieg = 0,
@@ -157,7 +157,7 @@ namespace Otomoto.Data
                 Typ = "Hatchback",
                 Pojemnosc = "1800cc",
                 SkrzyniaBiegow = "Manual",
-                RokProdukcji = new DateTime(2022, 1, 1),
+                RokProdukcji = 1998,
                 Cena = 20000,
                 Vin = 223456789,
                 Przebieg = 0,

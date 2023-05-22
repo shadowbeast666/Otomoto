@@ -26,7 +26,8 @@ namespace Otomoto.Models
         public string SkrzyniaBiegow { get; set; }
 
         [Required]
-        public DateTime RokProdukcji { get; set; }
+        public int RokProdukcji { get; set; }
+
 
         [Required]
         public decimal Cena { get; set; }
@@ -46,6 +47,7 @@ namespace Otomoto.Models
         public bool IsAdPaid { get; set; }
 
         public byte[]? CarPicture { get; set; }
+
     }
 }
 

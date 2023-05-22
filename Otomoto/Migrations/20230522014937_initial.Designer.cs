@@ -9,11 +9,11 @@ using Otomoto.Data;
 
 #nullable disable
 
-namespace Otomoto.Data.Migrations
+namespace Otomoto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230521125341_Car_Seed")]
-    partial class Car_Seed
+    [Migration("20230522014937_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,7 +236,7 @@ namespace Otomoto.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarId"), 1L, 1);
 
                     b.Property<byte[]>("CarPicture")
-                        .HasColumnType("image");
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
@@ -273,8 +273,8 @@ namespace Otomoto.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RokProdukcji")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("RokProdukcji")
+                        .HasColumnType("int");
 
                     b.Property<string>("SkrzyniaBiegow")
                         .IsRequired()
@@ -296,16 +296,16 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 1,
                             Cena = 10000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 14, 53, 41, 372, DateTimeKind.Local).AddTicks(3899),
+                            CreatedAt = new DateTime(2023, 5, 22, 3, 49, 37, 756, DateTimeKind.Local).AddTicks(8760),
                             IsAdActive = true,
                             IsAdPaid = false,
-                            Marka = "Marka1",
+                            Marka = "BMW",
                             Model = "Model1",
                             Opis = "Opis1",
                             Pojemnosc = "Pojemnosc1",
                             Przebieg = 10000m,
                             RodzajPaliwa = "RodzajPaliwa1",
-                            RokProdukcji = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RokProdukcji = 2000,
                             SkrzyniaBiegow = "SkrzyniaBiegow1",
                             Typ = "Typ1",
                             Vin = 123456
@@ -314,7 +314,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 2,
                             Cena = 20000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 14, 53, 41, 372, DateTimeKind.Local).AddTicks(3937),
+                            CreatedAt = new DateTime(2023, 5, 22, 3, 49, 37, 756, DateTimeKind.Local).AddTicks(8792),
                             IsAdActive = true,
                             IsAdPaid = true,
                             Marka = "Toyota",
@@ -323,7 +323,7 @@ namespace Otomoto.Data.Migrations
                             Pojemnosc = "1.8L",
                             Przebieg = 50000m,
                             RodzajPaliwa = "Petrol",
-                            RokProdukcji = new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RokProdukcji = 2009,
                             SkrzyniaBiegow = "Automatic",
                             Typ = "Sedan",
                             Vin = 100001
@@ -332,7 +332,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 3,
                             Cena = 18000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 14, 53, 41, 372, DateTimeKind.Local).AddTicks(3940),
+                            CreatedAt = new DateTime(2023, 5, 22, 3, 49, 37, 756, DateTimeKind.Local).AddTicks(8796),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Honda",
@@ -341,7 +341,7 @@ namespace Otomoto.Data.Migrations
                             Pojemnosc = "2.0L",
                             Przebieg = 30000m,
                             RodzajPaliwa = "Petrol",
-                            RokProdukcji = new DateTime(2018, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RokProdukcji = 2023,
                             SkrzyniaBiegow = "Manual",
                             Typ = "Hatchback",
                             Vin = 100002
@@ -350,7 +350,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 4,
                             Cena = 30000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 14, 53, 41, 372, DateTimeKind.Local).AddTicks(3945),
+                            CreatedAt = new DateTime(2023, 5, 22, 3, 49, 37, 756, DateTimeKind.Local).AddTicks(8799),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Toyota",
@@ -359,7 +359,7 @@ namespace Otomoto.Data.Migrations
                             Pojemnosc = "2500cc",
                             Przebieg = 0m,
                             RodzajPaliwa = "Petrol",
-                            RokProdukcji = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RokProdukcji = 2021,
                             SkrzyniaBiegow = "Automatic",
                             Typ = "Sedan",
                             Vin = 123456789
@@ -368,7 +368,7 @@ namespace Otomoto.Data.Migrations
                         {
                             CarId = 5,
                             Cena = 20000m,
-                            CreatedAt = new DateTime(2023, 5, 21, 14, 53, 41, 372, DateTimeKind.Local).AddTicks(3947),
+                            CreatedAt = new DateTime(2023, 5, 22, 3, 49, 37, 756, DateTimeKind.Local).AddTicks(8801),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Honda",
@@ -377,11 +377,28 @@ namespace Otomoto.Data.Migrations
                             Pojemnosc = "1800cc",
                             Przebieg = 0m,
                             RodzajPaliwa = "Petrol",
-                            RokProdukcji = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RokProdukcji = 1998,
                             SkrzyniaBiegow = "Manual",
                             Typ = "Hatchback",
                             Vin = 223456789
                         });
+                });
+
+            modelBuilder.Entity("Otomoto.Models.CarBrand", b =>
+                {
+                    b.Property<int>("CarBrandId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarBrandId"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CarBrandId");
+
+                    b.ToTable("CarBrands", "Identity");
                 });
 
             modelBuilder.Entity("UserManagement.MVC.Models.ApplicationUser", b =>
