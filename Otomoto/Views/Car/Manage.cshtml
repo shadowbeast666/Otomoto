@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Otomoto.Models.Car>
+
+@{
+    ViewBag.Title = "Ogłoszenia";
+}
+
+<h2>Cars</h2>
+
+<p>
+    <a asp-action="Create">Create New Car</a>
+</p>
+
+<form asp-controller="Car" asp-action="Index" method="get" class="row g-3">
+    <div class="col-md-2">
+        <label for="carId" class="form-label">Car Id</label>
+        <input type="text" class="form-control" id="carId" name="carId" />
+    </div>
+    <div class="col-md-2">
+        <label for="opis" class="form-label">Opis</label>
+        <input type="text" class="form-control" id="opis" name="opis" />
+    </div>
+    <div class="col-md-2">
+        <label for="marka">Marka:</label>
+        <select name="marka" id="marka">
+            <option value="">All</option>
+            @foreach (var brand in ViewBag.CarBrands)
+            {
+                <option value="@brand.Name">@brand.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="model" class="form-label">Model</label>
+        <input type="text" class="form-control" id="model" name="model" />
+    </div>
+    <div class="col-md-2">
+        <label for="typ" class="form-label">Nadwozie</label>
+        <select class="form-control" id="typ" name="typ">
+            <option value="">-- Wybierz nadwozie --</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Kombi">Kombi</option>
+            <option value="SUV">SUV</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="pojemnosc" class="form-label">Pojemność</label>
+        <input type="text" class="form-control" id="pojemnosc" name="pojemnosc" />
+    </div>
+    <div class="col-md-2">
+        <label for="skrzyniaBiegow" class="form-label">Nadwozie</label>
+        <select class="form-control" id="skrzyniaBiegow" name="skrzyniaBiegow">
+            <option value="">-- Wybierz rodzaj skrzyni --</option>
+            <option value="Manualna">Manualna</option>
+            <option value="Automatyczna">Automatyczna</option>
+            <option value="Polautomatyczna">Półautomatyczna Stopniowana</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="rokProdukcji" class="form-label">Rok Produkcji</label>
+        <input type="number" class="form-control" id="rokProdukcji" name="rokProdukcji" min="1900" max="2023" step="1" pattern="[0-9]{4}" title="Enter a valid year (e.g., 2023)" />
+    </div>
+    <div class="col-md-2">
+        <label for="cena" class="form-label">Cena</label>
+        <input type="text" class="form-control" id="cena" name="cena" />
+    </div>
+    <div class="col-md-2">
+        <label for="vin" class="form-label">Vin</label>
+        <input type="text" class="form-control" id="vin" name="vin" />
+    </div>
+    <div class="col-md-2">
+        <label for="przebieg" class="form-label">Przebieg</label>
+        <input type="text" class="form-control" id="przebieg" name="przebieg" />
+    </div>
+    <div class="col-md-2">
+        <label for="rodzajPaliwa" class="form-label">Rodzaj Paliwa</label>
+        <input type="text" class="form-control" id="rodzajPaliwa" name="rodzajPaliwa" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label"></label> 
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car Id</th>
+            <th>Opis</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Typ</th>
+            <th>Pojemnosc</th>
+            <th>Skrzynia Biegów</th>
+            <th>Rok Produkcji</th>
+            <th>Cena</th>
+            <th>VIN</th>
+            <th>Przebieg</th>
+            <th>Rodzaj Paliwa</th>
+            <th>Creation Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CarId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Opis)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Marka)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Typ)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pojemnosc)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SkrzyniaBiegow)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RokProdukcji)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cena)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Vin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Przebieg)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RodzajPaliwa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CarId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.CarId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.CarId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </tbody>
+</table>

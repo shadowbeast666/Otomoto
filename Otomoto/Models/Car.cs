@@ -48,6 +48,8 @@ namespace Otomoto.Models
 
         public byte[]? CarPicture { get; set; }
 
+        public string CarUserId { get; set; }
+
     }
 }
 

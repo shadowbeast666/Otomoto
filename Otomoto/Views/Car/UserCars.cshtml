@@ -1,11 +1,7 @@
 ﻿@model IEnumerable<Otomoto.Models.Car>
 
-@{
-    ViewBag.Title = "Ogłoszenia";
-}
+<h2>Your Cars</h2>
 
-<h2>Cars</h2>
-<a asp-action="Create">Create New Car</a>
 <div class="row row-cols-1 row-cols-md-3">
     @foreach (var car in Model)
     {
@@ -23,7 +19,6 @@
                 <div class="card-body">
                     <h5 class="card-title">@car.Model</h5>
                     <p class="card-text">@car.Opis</p>
-                    <a href="@Url.Action("Details", new { id = car.CarId })">Details</a>
                 </div>
             </div>
         </div>

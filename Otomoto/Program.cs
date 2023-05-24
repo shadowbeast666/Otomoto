@@ -56,25 +56,24 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapFallback(context =>
+{
+    context.Response.StatusCode = 404;
+    return Task.CompletedTask;
+});
 
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.UseEndpoints(endpoints =>
 {
-    
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
     endpoints.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Car}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
 });
+
+
 
 // Apply database migration and seed data
 await EnsureDatabaseUpdated(app);

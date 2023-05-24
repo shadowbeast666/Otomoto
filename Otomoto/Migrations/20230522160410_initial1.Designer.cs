@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Otomoto.Data;
 
@@ -11,9 +12,10 @@ using Otomoto.Data;
 namespace Otomoto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230522160410_initial1")]
+    partial class initial1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,10 +238,6 @@ namespace Otomoto.Migrations
                     b.Property<byte[]>("CarPicture")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("CarUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Cena")
                         .HasColumnType("decimal(18,2)");
 
@@ -297,9 +295,8 @@ namespace Otomoto.Migrations
                         new
                         {
                             CarId = 1,
-                            CarUserId = "1",
                             Cena = 10000m,
-                            CreatedAt = new DateTime(2023, 5, 23, 17, 24, 12, 353, DateTimeKind.Local).AddTicks(1871),
+                            CreatedAt = new DateTime(2023, 5, 22, 18, 4, 10, 100, DateTimeKind.Local).AddTicks(7381),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "BMW",
@@ -316,9 +313,8 @@ namespace Otomoto.Migrations
                         new
                         {
                             CarId = 2,
-                            CarUserId = "2",
                             Cena = 20000m,
-                            CreatedAt = new DateTime(2023, 5, 23, 17, 24, 12, 353, DateTimeKind.Local).AddTicks(1903),
+                            CreatedAt = new DateTime(2023, 5, 22, 18, 4, 10, 100, DateTimeKind.Local).AddTicks(7414),
                             IsAdActive = true,
                             IsAdPaid = true,
                             Marka = "Toyota",
@@ -335,9 +331,8 @@ namespace Otomoto.Migrations
                         new
                         {
                             CarId = 3,
-                            CarUserId = "3",
                             Cena = 18000m,
-                            CreatedAt = new DateTime(2023, 5, 23, 17, 24, 12, 353, DateTimeKind.Local).AddTicks(1907),
+                            CreatedAt = new DateTime(2023, 5, 22, 18, 4, 10, 100, DateTimeKind.Local).AddTicks(7417),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Honda",
@@ -354,9 +349,8 @@ namespace Otomoto.Migrations
                         new
                         {
                             CarId = 4,
-                            CarUserId = "4",
                             Cena = 30000m,
-                            CreatedAt = new DateTime(2023, 5, 23, 17, 24, 12, 353, DateTimeKind.Local).AddTicks(1911),
+                            CreatedAt = new DateTime(2023, 5, 22, 18, 4, 10, 100, DateTimeKind.Local).AddTicks(7420),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Toyota",
@@ -373,9 +367,8 @@ namespace Otomoto.Migrations
                         new
                         {
                             CarId = 5,
-                            CarUserId = "5",
                             Cena = 20000m,
-                            CreatedAt = new DateTime(2023, 5, 23, 17, 24, 12, 353, DateTimeKind.Local).AddTicks(1913),
+                            CreatedAt = new DateTime(2023, 5, 22, 18, 4, 10, 100, DateTimeKind.Local).AddTicks(7424),
                             IsAdActive = true,
                             IsAdPaid = false,
                             Marka = "Honda",

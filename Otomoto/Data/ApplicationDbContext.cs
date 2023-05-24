@@ -71,6 +71,8 @@ namespace Otomoto.Data
             builder.Entity<Car>().Property(c => c.Przebieg).IsRequired();
             builder.Entity<Car>().Property(c => c.RodzajPaliwa).IsRequired();
             builder.Entity<Car>().Property(c => c.CarPicture).HasColumnType("varbinary(max)");
+            builder.Entity<Car>().Property(c => c.CarUserId);
+
 
 
             builder.Entity<Car>().HasData(
@@ -90,7 +92,8 @@ namespace Otomoto.Data
                 RodzajPaliwa = "RodzajPaliwa1",
                 CreatedAt = DateTime.Now,
                 IsAdActive = true,
-                IsAdPaid = false
+                IsAdPaid = false,
+                CarUserId = "1"
                 //CarPicture = null because we're not seeding any pictures
             },
             new Car
@@ -109,7 +112,8 @@ namespace Otomoto.Data
                 RodzajPaliwa = "Petrol",
                 CreatedAt = DateTime.Now,
                 IsAdActive = true,
-                IsAdPaid = true
+                IsAdPaid = true,
+                 CarUserId = "2"
             },
             new Car
             {
@@ -127,7 +131,8 @@ namespace Otomoto.Data
                 RodzajPaliwa = "Petrol",
                 CreatedAt = DateTime.Now,
                 IsAdActive = true,
-                IsAdPaid = false
+                IsAdPaid = false,
+                 CarUserId = "3"
             },
              new Car
              {
@@ -145,7 +150,8 @@ namespace Otomoto.Data
                  RodzajPaliwa = "Petrol",
                  CreatedAt = DateTime.Now,
                  IsAdActive = true,
-                 IsAdPaid = false
+                 IsAdPaid = false,
+                  CarUserId = "4"
                  //CarPicture = null because we're not seeding any pictures
              },
             new Car
@@ -164,7 +170,8 @@ namespace Otomoto.Data
                 RodzajPaliwa = "Petrol",
                 CreatedAt = DateTime.Now,
                 IsAdActive = true,
-                IsAdPaid = false
+                IsAdPaid = false,
+                CarUserId = "5"
                 //CarPicture = null because we're not seeding any pictures
             }
             );

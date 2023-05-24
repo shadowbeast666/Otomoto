@@ -1,0 +1,82 @@
+﻿@model Otomoto.Models.Car
+
+@{
+    ViewBag.Title = "Dodaj nowe ogłoszenie";
+}
+
+<h2>Create New Car</h2>
+
+<form asp-controller="Car" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Opis">Opis</label>
+        <input asp-for="Opis" class="form-control" />
+        <span asp-validation-for="Opis" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Marka">Marka</label>
+        <input asp-for="Marka" class="form-control" />
+        <span asp-validation-for="Marka" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Model">Model</label>
+        <input asp-for="Model" class="form-control" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Typ">Typ</label>
+        <input asp-for="Typ" class="form-control" />
+        <span asp-validation-for="Typ" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Pojemnosc">Pojemność</label>
+        <input asp-for="Pojemnosc" class="form-control" />
+        <span asp-validation-for="Pojemnosc" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SkrzyniaBiegow">Skrzynia Biegów</label>
+        <input asp-for="SkrzyniaBiegow" class="form-control" />
+        <span asp-validation-for="SkrzyniaBiegow" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RokProdukcji">Rok Produkcji</label>
+        <input asp-for="RokProdukcji" type="number" class="form-control" min="1900" max="2023" />
+        <span asp-validation-for="RokProdukcji" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cena">Cena</label>
+        <input asp-for="Cena" type="number" class="form-control" min="0" />
+        <span asp-validation-for="Cena" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Vin">VIN</label>
+        <input asp-for="Vin" class="form-control" />
+        <span asp-validation-for="Vin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Przebieg">Przebieg</label>
+        <input asp-for="Przebieg" class="form-control" />
+        <span asp-validation-for="Przebieg" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RodzajPaliwa">Rodzaj Paliwa</label>
+        <input asp-for="RodzajPaliwa" class="form-control" />
+        <span asp-validation-for="RodzajPaliwa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CarPicture">Car Image</label>
+        <input type="file" accept=".png,.jpg,.jpeg,.gif,.tif" class="form-control" name="carImage" />
+        <span asp-validation-for="CarPicture" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
