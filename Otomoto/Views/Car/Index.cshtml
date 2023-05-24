@@ -4,9 +4,81 @@
     ViewBag.Title = "Ogłoszenia";
 }
 
-<h2>Cars</h2>
-<a asp-action="Create">Create New Car</a>
-<div class="row row-cols-1 row-cols-md-3">
+<h2>Ogłoszenie samochodów</h2>
+
+<form asp-controller="Car" asp-action="Index" method="get" class="row g-3">
+    <div class="col-md-2">
+        <label for="marka">Marka:</label>
+        <select class="form-control mt-2" name="marka" id="marka">
+            <option value="">All</option>
+            @foreach (var brand in ViewBag.CarBrands)
+            {
+                <option value="@brand.Name">@brand.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="model" class="form-label">Model</label>
+        <input type="text" class="form-control" id="model" name="model" />
+    </div>
+    <div class="col-md-2">
+        <label for="typ" class="form-label">Nadwozie</label>
+        <select class="form-control" id="typ" name="typ">
+            <option value="">-- Wybierz nadwozie --</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Kombi">Kombi</option>
+            <option value="SUV">SUV</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="pojemnosc" class="form-label">Pojemność</label>
+        <input type="text" class="form-control" id="pojemnosc" name="pojemnosc" />
+    </div>
+    <div class="col-md-2">
+        <label for="skrzyniaBiegow" class="form-label">Skrzynia biegów</label>
+        <select class="form-control" id="skrzyniaBiegow" name="skrzyniaBiegow">
+            <option value="">-- Wybierz rodzaj skrzyni --</option>
+            <option value="Manualna">Manualna</option>
+            <option value="Automatyczna">Automatyczna</option>
+            <option value="Polautomatyczna">Półautomatyczna Stopniowana</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="rokProdukcji" class="form-label">Rok Produkcji</label>
+        <input type="number" class="form-control" id="rokProdukcji" name="rokProdukcji" min="1900" max="2023" step="1" pattern="[0-9]{4}" title="Enter a valid year (e.g., 2023)" />
+    </div>
+    <div class="col-md-2">
+        <label for="cena" class="form-label">Cena</label>
+        <input type="text" class="form-control" id="cena" name="cena" />
+    </div>
+    <div class="col-md-2">
+        <label for="vin" class="form-label">Vin</label>
+        <input type="text" class="form-control" id="vin" name="vin" />
+    </div>
+    <div class="col-md-2">
+        <label for="przebieg" class="form-label">Przebieg</label>
+        <input type="text" class="form-control" id="przebieg" name="przebieg" />
+    </div>
+    <div class="col-md-2">
+        <label for="rodzajPaliwa" class="form-label">Rodzaj Paliwa</label>
+        <select class="form-control" id="rodzajPaliwa" name="rodzajPaliwa">
+            <option value="">-- Wybierz rodzaj skrzyni --</option>
+            <option value="Benzyna">Benzyna</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Benzyna + LPG">Benzyna + LPG</option>
+            <option value="Diesel + LPG">Diesel + LPG</option>
+            <option value="Elektryczne">Elektryczne</option>
+            <option value="Alkohol">Alkohol</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label class="form-label"></label>
+        <button type="submit" class="btn btn-primary mt-4">Search</button>
+    </div>
+</form>
+
+<div class="row row-cols-1 row-cols-md-3 mt-3">
     @foreach (var car in Model)
     {
         <div class="col mb-4">

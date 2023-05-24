@@ -1,10 +1,13 @@
 ﻿@using UserManagement.MVC.Models
 @model List<UserManagement.MVC.Models.UserRolesViewModel>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <h1>User Roles</h1>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,6 +16,7 @@
             <th>Email</th>
             <th>Roles</th>
             <th>Action</th>
+            <th></th> <!-- Add an extra heading for delete action -->
         </tr>
     </thead>
     <tbody>
@@ -25,8 +29,37 @@
                 <td>@string.Join(" , ", user.Roles.ToList())</td>
                 <td>
                     <a class="btn btn-primary" asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
+                    <a class="btn btn-warning" asp-controller="UserRoles" asp-action="ChangeUserPassword" asp-route-id="@user.UserId">Change Password</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-@user.UserId">Delete User</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@foreach (var user in Model)
+{
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal-@user.UserId" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete user @user.FirstName @user.LastName?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form asp-controller="UserRoles" asp-action="Delete" asp-route-id="@user.UserId" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

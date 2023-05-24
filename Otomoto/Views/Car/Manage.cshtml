@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<Otomoto.Models.Car>
 
 @{
-    ViewBag.Title = "Ogłoszenia";
+    ViewBag.Title = "Zarządzanie ogłoszeniami";
 }
 
-<h2>Cars</h2>
+<h2>Zarządzanie ogłoszeniami</h2>
 
-<p>
-    <a asp-action="Create">Create New Car</a>
-</p>
 
-<form asp-controller="Car" asp-action="Index" method="get" class="row g-3">
+
+<form asp-controller="Car" asp-action="Manage" method="get" class="row g-3">
     <div class="col-md-2">
         <label for="carId" class="form-label">Car Id</label>
         <input type="text" class="form-control" id="carId" name="carId" />
@@ -21,7 +19,7 @@
     </div>
     <div class="col-md-2">
         <label for="marka">Marka:</label>
-        <select name="marka" id="marka">
+        <select class="form-control mt-2" name="marka" id="marka">
             <option value="">All</option>
             @foreach (var brand in ViewBag.CarBrands)
             {
@@ -48,7 +46,7 @@
         <input type="text" class="form-control" id="pojemnosc" name="pojemnosc" />
     </div>
     <div class="col-md-2">
-        <label for="skrzyniaBiegow" class="form-label">Nadwozie</label>
+        <label for="skrzyniaBiegow" class="form-label">Skrzynia biegów</label>
         <select class="form-control" id="skrzyniaBiegow" name="skrzyniaBiegow">
             <option value="">-- Wybierz rodzaj skrzyni --</option>
             <option value="Manualna">Manualna</option>

@@ -104,6 +104,7 @@ namespace Otomoto.Controllers
         }
 
         [Authorize]
+
         [Authorize(Roles = "Administrator,SuperAdmin,Moderator")]
         public IActionResult Manage(int? carId, string opis, string marka, string model1, string typ, string pojemnosc, string skrzyniaBiegow, int? rokProdukcji, decimal? cena, int? vin, int? przebieg, string rodzajPaliwa)
         {
@@ -176,11 +177,22 @@ namespace Otomoto.Controllers
             return View(model);
         }
 
-          public IActionResult Create()
+        [Authorize]
+        public IActionResult Create()
             {
                 return View();
             }
+        [Authorize]
+        public async Task<IActionResult> MyCars()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            var userCars = _dbContext.Cars.Where(c => c.CarUserId == currentUser.Id).ToList();
+            Console.WriteLine($"Found {userCars.Count} cars for user {currentUser.UserName}.");
+            return View(userCars);
+        }
 
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(Car car, IFormFile carImage)
         {
@@ -210,7 +222,7 @@ namespace Otomoto.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult CheckVIN(int Vin)
         {
             var car = _dbContext.Cars.FirstOrDefault(c => c.Vin == Vin);
@@ -221,6 +233,30 @@ namespace Otomoto.Controllers
             return Json(false);
         }
 
+        [Authorize]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var car = _dbContext.Cars.FirstOrDefault(c => c.CarId == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var userId = _userManager.GetUserId(User);
+            if (!User.IsInRole("SuperAdmin") && !User.IsInRole("Admin") && !User.IsInRole("Moderator") && car.CarUserId != userId)
+            {
+                return Forbid();
+            }
+
+            return View(car);
+        }
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Edit(Car car, IFormFile carImage)
         {
@@ -267,7 +303,7 @@ namespace Otomoto.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -287,6 +323,7 @@ namespace Otomoto.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -303,13 +340,7 @@ namespace Otomoto.Controllers
             return View(car);
         }
 
-        public async Task<IActionResult> UserCarsAsync()
-        {
-            var currentUser = await _userManager.GetUserAsync(User);
-            var userCars = _dbContext.Cars.Where(c => c.CarUserId == currentUser.Id).ToList();
-
-            return View(userCars);
-        }
+        
 
     }
 }

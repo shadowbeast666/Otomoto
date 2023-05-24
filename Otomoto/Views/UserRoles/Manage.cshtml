@@ -1,14 +1,14 @@
 ﻿@using UserManagement.MVC.Models
 @model List<ManageUserRolesViewModel>
 @{
-    ViewData["Title"] = "Manage";
+    ViewData["Title"] = "Zarządzanie użytkownikiem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <form method="post">
     <div class="card">
         <div class="card-header">
-            <h2>Manage User Roles</h2>
-            Add/Remove Roles for User / @ViewBag.UserName.
+            <h2>Zarządzenia rolami użytkowników</h2>
+            Dodaj/usuń role użytkowników / @ViewBag.UserName.
         </div>
         <div class="card-body">
             @for (int i = 0; i < Model.Count; i++)

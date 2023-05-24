@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Otomoto.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="css/vapor.css" />
+    <link rel="icon" href="@Url.Content("~/myico.ico")" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Otomoto</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Car" asp-action="Index">Otomoto</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,21 +22,35 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Index">Ogłoszenia</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Create">Dodaj ogłoszenie</a>
-                        </li>
+                        
+                        @if (!User.IsInRole("Admin") && !User.IsInRole("SuperAdmin") && !User.IsInRole("Moderator") && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Create">Dodaj ogłoszenie</a>
+                            </li>
+                            <li>
+                                <a class="nav-link text-dark" asp-controller="Car" asp-action="MyCars">Moje ogłoszenia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">O stronie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
+                            </li>
+                        }
+                        
                         @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="RoleManager" asp-action="Index">Role Manager</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="RoleManager" asp-action="Index">Zarządzanie rolamil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="UserRoles" asp-action="Index">User Roles</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserRoles" asp-action="Index">Zarządzanie użytkownikami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Manage">Zarządzanie ogłoszeniami</a>
                             </li>
                         }
                     </ul>

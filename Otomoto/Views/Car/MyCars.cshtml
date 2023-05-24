@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Car>
+@{
+    ViewData["Title"] = "Moje samochody";
+}
+<h2>Moje samochody</h2>
+<a asp-action="Create">Dodaj nowy samochód</a>
+<div class="row row-cols-1 row-cols-md-3">
+    @foreach (var car in Model)
+    {
+        <div class="col mb-4">
+            <div class="card">
+                @if (car.CarPicture != null && car.CarPicture.Length > 0)
+                {
+                    var base64String = Convert.ToBase64String(car.CarPicture);
+                    <img src="data:image/jpeg;base64,@base64String" class="card-img-top" alt="Obraz samochodu" style="height: 200px; width: 100%;" />
+                }
+                else
+                {
+                    <img src="~/images/default-car-image.jpg" class="card-img-top" alt="Domyślny obraz samochodu" style="height: 200px; width: 100%;" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@car.Model</h5>
+                    <p class="card-text">@car.Opis</p>
+                    <a href="@Url.Action("Details", new { id = car.CarId })">Szczegóły</a> |
+                    <a href="@Url.Action("Edit", new { id = car.CarId })">Edytuj</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

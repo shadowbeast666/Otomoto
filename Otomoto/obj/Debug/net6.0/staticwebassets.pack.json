@@ -49,10 +49,6 @@
       "PackagePath": "staticwebassets\\css\\vapor.css"
     },
     {
-      "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
       "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\images\\close.png",
       "PackagePath": "staticwebassets\\images\\close.png"
     },
@@ -303,6 +299,10 @@
     {
       "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\myico.ico",
+      "PackagePath": "staticwebassets\\myico.ico"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Otomoto.Microsoft.AspNetCore.StaticWebAssets.props",

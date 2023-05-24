@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zgz/RY9a/F7ThDiVjRCyaknPdrpy8kXTakaXiFQAqsM=",
+  "Hash": "cv0LigEgf84y3JgC6RKamuIQA08foytP3ZVi3my4eBo=",
   "Source": "Otomoto",
   "BasePath": "_content/Otomoto",
   "Mode": "Default",
@@ -1258,23 +1258,6 @@
       "OriginalItemSpec": "wwwroot\\css\\vapor.css"
     },
     {
-      "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\favicon.ico",
-      "SourceId": "Otomoto",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\",
-      "BasePath": "_content/Otomoto",
-      "RelativePath": "favicon.ico",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
       "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\images\\close.png",
       "SourceId": "Otomoto",
       "SourceType": "Discovered",
@@ -2344,6 +2327,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\myico.ico",
+      "SourceId": "Otomoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\",
+      "BasePath": "_content/Otomoto",
+      "RelativePath": "myico.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\myico.ico"
     }
   ]
 }
