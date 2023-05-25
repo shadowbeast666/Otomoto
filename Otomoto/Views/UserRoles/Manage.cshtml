@@ -16,7 +16,7 @@
                 <div class="form-check m-1">
                     <input type="hidden" asp-for="@Model[i].RoleId" />
                     <input type="hidden" asp-for="@Model[i].RoleName" />
-                    <input asp-for="@Model[i].Selected" class="form-check-input" />
+                    <input type="radio" name="selectedRole" value="@Model[i].RoleName" class="form-check-input" />
                     <label class="form-check m-1" asp-for="@Model[i].Selected">
                         @Model[i].RoleName
                     </label>
@@ -25,10 +25,8 @@
             <div asp-validation-summary="All" class="text-danger"></div>
         </div>
         <div class="card-footer">
-            <input type="submit" value="Update" class="btn btn-primary"
-                   style="width:auto" />
-            <a asp-action="EditUser" asp-route-id="@ViewBag.userId"
-               class="btn btn-primary" style="width:auto">Cancel</a>
+            <input type="submit" value="Update" class="btn btn-primary" style="width:auto" />
+            <button type="button" class="btn btn-primary" style="width:auto" onclick="history.back();">Cancel</button>
         </div>
     </div>
 </form>

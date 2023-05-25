@@ -4,14 +4,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Otomoto.Data;
 using Otomoto.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Otomoto.Data;
-using Otomoto.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -178,11 +173,13 @@ namespace Otomoto.Controllers
         }
 
         [Authorize]
+        [Authorize(Roles = "Basic,Moderator")]
         public IActionResult Create()
             {
                 return View();
             }
         [Authorize]
+        [Authorize(Roles = "Basic")]
         public async Task<IActionResult> MyCars()
         {
             var currentUser = await _userManager.GetUserAsync(User);
@@ -193,6 +190,7 @@ namespace Otomoto.Controllers
 
 
         [Authorize]
+        [Authorize(Roles = "Basic,Moderator")]
         [HttpPost]
         public async Task<IActionResult> Create(Car car, IFormFile carImage)
         {
@@ -234,6 +232,7 @@ namespace Otomoto.Controllers
         }
 
         [Authorize]
+        [Authorize(Roles = "Basic,Moderator")]
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -304,6 +303,7 @@ namespace Otomoto.Controllers
 
 
         [Authorize]
+        [Authorize(Roles = "Moderator")]
         public IActionResult Delete(int? id)
         {
             if (id == null)

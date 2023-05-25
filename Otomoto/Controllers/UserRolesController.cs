@@ -86,12 +86,7 @@ namespace UserManagement.MVC.Controllers
                 return View();
             }
 
-            var selectedRoles = model.Where(x => x.Selected).Select(y => y.RoleName).ToList();
-            if (selectedRoles.Count > 1)
-            {
-                ModelState.AddModelError("", "You cannot select more than one role for a user");
-                return View(model);
-            }
+            var selectedRole = Request.Form["selectedRole"];
 
             var roles = await _userManager.GetRolesAsync(user);
             var result = await _userManager.RemoveFromRolesAsync(user, roles);
@@ -101,9 +96,9 @@ namespace UserManagement.MVC.Controllers
                 return View(model);
             }
 
-            if (selectedRoles.Count == 1)
+            if (!string.IsNullOrEmpty(selectedRole))
             {
-                result = await _userManager.AddToRoleAsync(user, selectedRoles[0]);
+                result = await _userManager.AddToRoleAsync(user, selectedRole);
                 if (!result.Succeeded)
                 {
                     ModelState.AddModelError("", "Cannot add selected role to user");
@@ -113,6 +108,7 @@ namespace UserManagement.MVC.Controllers
 
             return RedirectToAction("Index");
         }
+
 
 
         [Authorize]
