@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UserManagement.MVC.Models;
 using Otomoto.Models;
+using Microsoft.AspNetCore.Authorization;
+using UserManagement.MVC.Enums;
 
 namespace UserManagement.MVC.Controllers
 {
@@ -20,6 +22,9 @@ namespace UserManagement.MVC.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -36,6 +41,9 @@ namespace UserManagement.MVC.Controllers
             }
             return View(userRolesViewModel);
         }
+
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
@@ -67,7 +75,8 @@ namespace UserManagement.MVC.Controllers
             return View(model);
         }
 
-
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model, string userId)
         {
@@ -106,6 +115,8 @@ namespace UserManagement.MVC.Controllers
         }
 
 
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         private async Task<List<string>> GetUserRoles(ApplicationUser user)
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
@@ -135,6 +146,8 @@ namespace UserManagement.MVC.Controllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         [HttpGet]
         public async Task<IActionResult> ChangeUserPassword(string id)
         {
@@ -156,6 +169,8 @@ namespace UserManagement.MVC.Controllers
             }
         }
 
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> ChangeUserPassword(ChangeUserPasswordViewModel model)
         {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cv0LigEgf84y3JgC6RKamuIQA08foytP3ZVi3my4eBo=",
+  "Hash": "rf0eNbeD8pRD4JplcNzgj2jYWd9tLIw4DYmDQL0ifkA=",
   "Source": "Otomoto",
   "BasePath": "_content/Otomoto",
   "Mode": "Default",
@@ -1273,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\close.png"
+    },
+    {
+      "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\images\\default-car-image.jpg",
+      "SourceId": "Otomoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\",
+      "BasePath": "_content/Otomoto",
+      "RelativePath": "images/default-car-image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\default-car-image.jpg"
     },
     {
       "Identity": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\images\\loading.gif",

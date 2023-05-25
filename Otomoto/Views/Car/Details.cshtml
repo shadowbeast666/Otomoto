@@ -18,17 +18,17 @@
     <div class="page-content page-container mt-5" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
-                <div class="col-xl-8 col-md-12">
+                <div>
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="col-xl-12 bg-c-lite-green user-profile">
                                 <div class="card-block text-center text-white">
                                     <div class="m-b-25">
                                         @if (Model.CarPicture != null && Model.CarPicture.Length > 0)
                                         {
                                             var base64String = Convert.ToBase64String(Model.CarPicture);
                                             <a href="data:image/jpeg;base64,@base64String" data-lightbox="car-image">
-                                                <img src="data:image/jpeg;base64,@base64String" width="140px" class="img-radius" alt="Car-Image">
+                                                <img src="data:image/jpeg;base64,@base64String" width="240px" class="img-radius" alt="Car-Image">
                                             </a>
                                         }
                                         else

@@ -8,6 +8,7 @@ namespace Otomoto.Models
     {
         public string UserId { get; set; }
         public string Email { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]

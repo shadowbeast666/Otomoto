@@ -10,7 +10,6 @@ using UserManagement.MVC.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -20,7 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;
-    // Configuration options for authentication
+    
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -29,18 +28,16 @@ builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequiredLength = 8;
-    // Other password options
+    
 
-    // Account lockout options
+   
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
 
-    // Account confirmation options
     options.SignIn.RequireConfirmedEmail = true;
     options.SignIn.RequireConfirmedPhoneNumber = false;
 
-    // Authorization options
     options.ClaimsIdentity.RoleClaimType = "Role";
     options.ClaimsIdentity.UserIdClaimType = "UserId";
     options.ClaimsIdentity.UserNameClaimType = "UserName";
@@ -75,7 +72,6 @@ app.UseEndpoints(endpoints =>
 
 
 
-// Apply database migration and seed data
 await EnsureDatabaseUpdated(app);
 
 app.Run();
@@ -96,7 +92,7 @@ async Task EnsureDatabaseUpdated(WebApplication app)
 
         if (!context.CarBrands.Any())
         {
-            // Add car brands to the database
+            
             var carBrands = new List<CarBrand>
             {
                 new CarBrand { Name = "Abarth" },

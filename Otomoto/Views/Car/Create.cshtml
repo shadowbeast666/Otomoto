@@ -1,6 +1,8 @@
 ﻿@model Otomoto.Models.Car
 
-
+@{
+    ViewBag.Title = "Dodaj ogłoszenie";
+}
 <h2>Dodaj nowe ogłoszenie</h2>
 
 <form asp-controller="Car" asp-action="Create" method="post" enctype="multipart/form-data">

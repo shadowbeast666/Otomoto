@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using UserManagement.MVC.Enums;
 
 namespace UserManagement.MVC.Controllers
 {
@@ -15,11 +17,17 @@ namespace UserManagement.MVC.Controllers
         {
             _roleManager = roleManager;
         }
+
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
         }
+
+        [Authorize]
+        [Authorize(Roles = "Administrator,SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> AddRole(string roleName)
         {

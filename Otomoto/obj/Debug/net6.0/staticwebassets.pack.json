@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\images\\close.png"
     },
     {
+      "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\images\\default-car-image.jpg",
+      "PackagePath": "staticwebassets\\images\\default-car-image.jpg"
+    },
+    {
       "Id": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\wwwroot\\images\\loading.gif",
       "PackagePath": "staticwebassets\\images\\loading.gif"
     },
