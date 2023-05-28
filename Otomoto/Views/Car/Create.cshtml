@@ -13,9 +13,14 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Marka">Marka</label>
-        <input asp-for="Marka" class="form-control" />
-        <span asp-validation-for="Marka" class="text-danger"></span>
+        <label for="marka">Marka:</label>
+        <select class="form-control mt-2" name="marka" id="marka">
+            <option value="">All</option>
+            @foreach (var brand in ViewBag.CarBrands)
+            {
+                <option value="@brand.Name">@brand.Name</option>
+            }
+        </select>
     </div>
 
     <div class="form-group">

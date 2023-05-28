@@ -33,6 +33,7 @@ namespace Otomoto.Controllers
 
             var carBrands = _dbContext.CarBrands.ToList();
             ViewBag.CarBrands = carBrands;
+            cars = cars.Where(c => c.IsAdActive);
 
             if (carId.HasValue)
             {
@@ -176,7 +177,9 @@ namespace Otomoto.Controllers
         [Authorize(Roles = "Basic,Moderator")]
         public IActionResult Create()
             {
-                return View();
+            var carBrands = _dbContext.CarBrands.ToList();
+            ViewBag.CarBrands = carBrands;
+            return View();
             }
         [Authorize]
         [Authorize(Roles = "Basic")]
@@ -186,6 +189,14 @@ namespace Otomoto.Controllers
             var userCars = _dbContext.Cars.Where(c => c.CarUserId == currentUser.Id).ToList();
             Console.WriteLine($"Found {userCars.Count} cars for user {currentUser.UserName}.");
             return View(userCars);
+        }
+
+        [Authorize]
+        [Authorize(Roles = "Moderator")]
+        public IActionResult Inactive()
+        {
+            var car = _dbContext.Cars.Where(c => c.IsAdActive == false).ToList();
+            return View(car);
         }
 
 
@@ -209,7 +220,7 @@ namespace Otomoto.Controllers
 
                 var currentUser = await _userManager.GetUserAsync(User);
                 car.CarUserId = currentUser.Id;
-
+                car.IsAdActive = false;
                 _dbContext.Cars.Add(car);
                 await _dbContext.SaveChangesAsync();
 
@@ -319,6 +330,29 @@ namespace Otomoto.Controllers
 
             _dbContext.Cars.Remove(car);
             _dbContext.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize]
+        [Authorize(Roles = "Moderator")]
+        public async Task<IActionResult> Activate(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var car = await _dbContext.Cars.FirstOrDefaultAsync(c => c.CarId == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            car.IsAdActive = true; 
+
+            _dbContext.Cars.Update(car);
+            await _dbContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }

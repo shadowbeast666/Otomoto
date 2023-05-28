@@ -51,5 +51,7 @@ namespace Otomoto.Models
         public string CarUserId { get; set; }
 
     }
+
+
 }
 
