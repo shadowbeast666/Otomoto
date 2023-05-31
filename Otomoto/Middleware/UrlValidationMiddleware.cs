@@ -25,12 +25,12 @@ public class Startup
 
         app.UseEndpoints(endpoints =>
         {
-            // Define your routes here
+           
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            // Add a catch-all route for handling 404 errors
+         
             endpoints.MapFallback(HandleNotFound);
         });
     }
@@ -38,10 +38,8 @@ public class Startup
     private Task HandleNotFound(HttpContext context)
     {
         context.Response.StatusCode = 404;
-        // Optionally, you can return a custom 404 page
-        // by writing the appropriate HTML content to the response.
-        // Example:
-        // await context.Response.WriteAsync("404 - Page Not Found");
+  
+        // await context.Response.WriteAsync("404 - Page Not Found"); Opcjonalne 404
         return Task.CompletedTask;
     }
 }

@@ -37,12 +37,7 @@
                                     <a class="nav-link text-dark" asp-controller="Car" asp-action="MyCars">Moje ogłoszenia</a>
                                 </li>
                             }
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">O stronie</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
-                            </li>
+                            
                         }
                         
                         @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
@@ -63,6 +58,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Inactive">Aktywacja ogłoszeń</a>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">O stronie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

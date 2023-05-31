@@ -15,12 +15,13 @@
     <div class="form-group">
         <label for="marka">Marka:</label>
         <select class="form-control mt-2" name="marka" id="marka">
-            <option value="">All</option>
+            <option value="">Wybierz Markę</option>
             @foreach (var brand in ViewBag.CarBrands)
             {
                 <option value="@brand.Name">@brand.Name</option>
             }
         </select>
+        <span asp-validation-for="Marka" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -30,8 +31,17 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Typ">Typ</label>
-        <input asp-for="Typ" class="form-control" />
+        <label for="typ" class="form-label">Nadwozie</label>
+        <select class="form-control" id="typ" name="typ">
+            <option value="">-- Wybierz nadwozie --</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Coupe">Coupe</option>
+            <option value="Kombi">Kombi</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Minivan">Minivan</option>
+            <option value="Pickup">Pickup</option>
+            <option value="SUV">SUV</option>
+        </select>
         <span asp-validation-for="Typ" class="text-danger"></span>
     </div>
 
@@ -42,8 +52,13 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="SkrzyniaBiegow">Skrzynia Biegów</label>
-        <input asp-for="SkrzyniaBiegow" class="form-control" />
+        <label for="skrzyniaBiegow" class="form-label">Skrzynia biegów</label>
+        <select class="form-control" id="skrzyniaBiegow" name="skrzyniaBiegow">
+            <option value="">-- Wybierz rodzaj skrzyni --</option>
+            <option value="Manualna">Manualna</option>
+            <option value="Automatyczna">Automatyczna</option>
+            <option value="Polautomatyczna">Półautomatyczna</option>
+        </select>
         <span asp-validation-for="SkrzyniaBiegow" class="text-danger"></span>
     </div>
 
@@ -72,8 +87,16 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="RodzajPaliwa">Rodzaj Paliwa</label>
-        <input asp-for="RodzajPaliwa" class="form-control" />
+        <label for="rodzajPaliwa" class="form-label">Rodzaj Paliwa</label>
+        <select class="form-control" id="rodzajPaliwa" name="rodzajPaliwa">
+            <option value="">-- Wybierz rodzaj paliwa --</option>
+            <option value="Benzyna">Benzyna</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Benzyna + LPG">Benzyna + LPG</option>
+            <option value="Diesel + LPG">Diesel + LPG</option>
+            <option value="Elektryczne">Elektryczne</option>
+            <option value="Alkohol">Alkohol</option>
+        </select>
         <span asp-validation-for="RodzajPaliwa" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -81,6 +104,6 @@
         <input type="file" accept=".png,.jpg,.jpeg,.gif,.tif" class="form-control" name="carImage" />
         <span asp-validation-for="CarPicture" class="text-danger"></span>
     </div>
-
+    <span asp-validation-for="CarPicture" class="text-danger"></span>
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
