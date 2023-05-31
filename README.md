@@ -1,4 +1,4 @@
-## Auto_garaz (Otomoto)
+# Auto_garaz (Otomoto)
 
 Auto_garaz, also known as Otomoto, is an ASP.NET MVC 6 project.
 
