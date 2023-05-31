@@ -55,7 +55,11 @@ namespace UserManagement.MVC.Controllers
             }
             ViewBag.UserName = user.UserName;
             var model = new List<ManageUserRolesViewModel>();
-            foreach (var role in _roleManager.Roles)
+
+            // Materialize roles list here before the loop
+            var roles = await _roleManager.Roles.ToListAsync();
+
+            foreach (var role in roles)
             {
                 var userRolesViewModel = new ManageUserRolesViewModel
                 {
@@ -108,8 +112,6 @@ namespace UserManagement.MVC.Controllers
 
             return RedirectToAction("Index");
         }
-
-
 
         [Authorize]
         [Authorize(Roles = "Administrator,SuperAdmin")]

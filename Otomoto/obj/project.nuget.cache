@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dz1F7LHLAeqQPv+nMPpLBja039wpl32v3oMulBCC/ShhSCmfNGiFqd5U+OTNKgkTiku19A5Vfib2+qxxP3Y2+g==",
+  "dgSpecHash": "O025jPrmlf/HB6MX0VTYEDvCVp3+VcXruzkUg2W/MLv2pfa5/z3XG8/pGgxYFdqVxjWigxDlkYCVgbg6771MLQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Shadow\\source\\repos\\Otomoto\\Otomoto\\Otomoto.csproj",
   "expectedPackageFiles": [
@@ -63,6 +63,7 @@
     "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.8.0\\microsoft.identitymodel.protocols.6.8.0.nupkg.sha512",
     "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
     "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
+    "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.net.build.containers\\7.0.302\\microsoft.net.build.containers.7.0.302.nupkg.sha512",
     "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.net.stringtools\\17.3.2\\microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\Shadow\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
