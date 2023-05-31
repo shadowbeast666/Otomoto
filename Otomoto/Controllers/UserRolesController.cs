@@ -24,7 +24,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -43,7 +43,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         public async Task<IActionResult> Manage(string userId)
         {
             ViewBag.userId = userId;
@@ -56,7 +56,6 @@ namespace UserManagement.MVC.Controllers
             ViewBag.UserName = user.UserName;
             var model = new List<ManageUserRolesViewModel>();
 
-            // Materialize roles list here before the loop
             var roles = await _roleManager.Roles.ToListAsync();
 
             foreach (var role in roles)
@@ -80,7 +79,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model, string userId)
         {
@@ -114,7 +113,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         private async Task<List<string>> GetUserRoles(ApplicationUser user)
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
@@ -145,7 +144,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet]
         public async Task<IActionResult> ChangeUserPassword(string id)
         {
@@ -168,7 +167,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> ChangeUserPassword(ChangeUserPasswordViewModel model)
         {

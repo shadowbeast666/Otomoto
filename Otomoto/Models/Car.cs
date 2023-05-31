@@ -30,12 +30,12 @@ namespace Otomoto.Models
 
 
         [Required]
-        public decimal Cena { get; set; }
+        public int Cena { get; set; }
 
         public int Vin { get; set; }
 
         [Required]
-        public decimal Przebieg { get; set; }
+        public int Przebieg { get; set; }
 
         [Required]
         public string RodzajPaliwa { get; set; }
@@ -54,4 +54,3 @@ namespace Otomoto.Models
 
 
 }
-

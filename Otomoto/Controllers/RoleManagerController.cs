@@ -19,7 +19,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         public async Task<IActionResult> Index()
         {
             var roles = await _roleManager.Roles.ToListAsync();
@@ -27,7 +27,7 @@ namespace UserManagement.MVC.Controllers
         }
 
         [Authorize]
-        [Authorize(Roles = "Administrator,SuperAdmin")]
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> AddRole(string roleName)
         {

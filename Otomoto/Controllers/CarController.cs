@@ -101,7 +101,7 @@ namespace Otomoto.Controllers
 
         [Authorize]
 
-        [Authorize(Roles = "Administrator,SuperAdmin,Moderator")]
+        [Authorize(Roles = "SuperAdmin,Moderator")]
         public IActionResult Manage(int? carId, string opis, string marka, string model1, string typ, string pojemnosc, string skrzyniaBiegow, int? rokProdukcji, decimal? cena, int? vin, int? przebieg, string rodzajPaliwa)
         {
             var cars = _dbContext.Cars.AsQueryable();
@@ -176,11 +176,12 @@ namespace Otomoto.Controllers
         [Authorize]
         [Authorize(Roles = "Basic,Moderator")]
         public IActionResult Create()
-            {
+        {
             var carBrands = _dbContext.CarBrands.ToList();
             ViewBag.CarBrands = carBrands;
             return View();
-            }
+        }
+
         [Authorize]
         [Authorize(Roles = "Basic")]
         public async Task<IActionResult> MyCars()
@@ -205,9 +206,30 @@ namespace Otomoto.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Car car, IFormFile carImage)
         {
+
+            var carBrands = _dbContext.CarBrands.ToList();
+            ViewBag.CarBrands = carBrands;
+
             if (carImage == null)
             {
-                ModelState.AddModelError("", "Image is required");
+                ModelState.AddModelError("Error", "Image is required");
+            }
+
+            if (string.IsNullOrEmpty(car.Typ))
+            {
+                ModelState.AddModelError("Error", "Nadwozie jest wymagane.");
+            }
+            if (string.IsNullOrEmpty(car.Marka))
+            {
+                ModelState.AddModelError("Error", "Marka jest wymagana.");
+            }
+            if (string.IsNullOrEmpty(car.SkrzyniaBiegow))
+            {
+                ModelState.AddModelError("Error", "Skrzynia biegów jest wymagana.");
+            }
+            if (string.IsNullOrEmpty(car.RodzajPaliwa))
+            {
+                ModelState.AddModelError("Error", "Rodzaj paliwa jest wymagany.");
             }
 
             if (carImage != null)
@@ -349,7 +371,7 @@ namespace Otomoto.Controllers
                 return NotFound();
             }
 
-            car.IsAdActive = true; 
+            car.IsAdActive = true;
 
             _dbContext.Cars.Update(car);
             await _dbContext.SaveChangesAsync();
@@ -374,7 +396,7 @@ namespace Otomoto.Controllers
             return View(car);
         }
 
-        
+
 
     }
 }

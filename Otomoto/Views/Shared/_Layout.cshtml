@@ -24,10 +24,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Index">Ogłoszenia</a>
                         </li>
-                        
+
                         @if (!User.IsInRole("Admin") && !User.IsInRole("SuperAdmin") && !User.IsInRole("Moderator") && User.Identity.IsAuthenticated)
                         {
-                            
+
                             @if (User.IsInRole("Basic"))
                             {
                                 <li class="nav-item">
@@ -37,14 +37,9 @@
                                     <a class="nav-link text-dark" asp-controller="Car" asp-action="MyCars">Moje ogłoszenia</a>
                                 </li>
                             }
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">O stronie</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
-                            </li>
+
                         }
-                        
+
                         @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
                         {
                             <li class="nav-item">
@@ -52,7 +47,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="UserRoles" asp-action="Index">Zarządzanie użytkownikami</a>
-                            </li> 
+                            </li>
                         }
                         @if (User.IsInRole("Moderator"))
                         {
@@ -63,6 +58,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Inactive">Aktywacja ogłoszeń</a>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">O stronie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Polityka prywatności</a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
