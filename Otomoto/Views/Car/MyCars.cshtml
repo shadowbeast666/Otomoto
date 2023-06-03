@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Car>
+@model IEnumerable<Car>
 @{
     ViewData["Title"] = "Moje samochody";
 }
@@ -21,7 +21,8 @@
                     <h5 class="card-title">@car.Model</h5>
                     <p class="card-text">@car.Opis</p>
                     <a href="@Url.Action("Details", new { id = car.CarId })">Szczegóły</a> |
-                    <a href="@Url.Action("Edit", new { id = car.CarId })">Edytuj</a>
+                    <a href="@Url.Action("Edit", new { id = car.CarId })">Edytuj</a> |
+                    <a href="@Url.Action("DeleteOwnCar", new { id = car.CarId })">Usuń</a>
                 </div>
             </div>
         </div>
