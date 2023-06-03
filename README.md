@@ -11,17 +11,20 @@ This project aims to provide an intuitive platform where car buyers and sellers 
 By default, only one user, superadmin@gmail.com, is added with the password: "123Pa$$word." However, for obvious reasons, this user will only be accessible locally! The hosted version of the application has limited access: No-authorized, Basic, and Moderator.
 
 Credentials for the online version:
-user@user.user::123Pa$$word.
-mod@mod.mod::123Paword.mod@mod.mod::123Pa$$word.
+- user@user.user::123Pa$$word.
+- mod@mod.mod::123Pa$$word.
 
 To access the SuperAdmin or Admin view, the application needs to be run locally.
 
 Description of permissions:
-Non-authorized / Registered - ability to view the site
-Basic - ability to create new announcements and manage own announcements
-Moderator - full ability to manage announcements
-Administrator - ability to manage users and roles
-SuperAdmin - ability to manage users and roles + moderator view (without editing options!)
+ - Non-authorized / Registered - ability to view the site
+ - Basic - ability to create new announcements and manage own announcements
+ - Moderator - full ability to manage announcements
+ - Administrator - ability to manage users and roles
+- SuperAdmin - ability to manage users and roles + moderator view (without editing options!)
+
+Please note that anyone will be able to change these credentials, rendering access impossible. 
+In case of any issues with logging in to any of the available accounts, please contact me for assistance.
 
 # Technology Stack
 ### Backend :
