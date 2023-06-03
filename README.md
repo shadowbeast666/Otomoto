@@ -8,6 +8,8 @@ This project aims to provide an intuitive platform where car buyers and sellers 
 
 # For project evaluators!
 
+To open the technical documentation, you need to enter a password that is the NAME and SURNAME of the course instructor (in lowercase and with Polish characters, no spaces beetween, like this : adamkowalski).
+
 By default, only one user, superadmin@gmail.com, is added with the password: "123Pa$$word." However, for obvious reasons, this user will only be accessible locally! The hosted version of the application has limited access: No-authorized, Basic, and Moderator.
 
 Credentials for the online version:
