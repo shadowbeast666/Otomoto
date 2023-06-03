@@ -357,6 +357,34 @@ namespace Otomoto.Controllers
         }
 
         [Authorize]
+        [Authorize(Roles = "Basic")]
+        public async Task<IActionResult> DeleteOwnCar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var car = _dbContext.Cars.FirstOrDefault(c => c.CarId == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            if (car.CarUserId != currentUser.Id)
+            {
+                return Forbid(); 
+            }
+
+            _dbContext.Cars.Remove(car);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction(nameof(MyCars));
+        }
+
+        [Authorize]
         [Authorize(Roles = "Moderator")]
         public async Task<IActionResult> Activate(int? id)
         {
